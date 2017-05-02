@@ -1,6 +1,5 @@
 ---
-  - hosts: all
-    become: true
+  - hosts: web
     tasks:
       - apt:
           pkg: nginx
