@@ -1,0 +1,28 @@
+---
+
+# Tasks for 'nginx' role
+
+- apt:
+    pkg: nginx
+    state: latest
+- apt:
+    pkg: php-fpm
+    state: latest
+- apt:
+    pkg: php-dom
+    state: latest
+- apt:
+    pkg: php-zip
+    state: latest
+- apt:
+    pkg: php-mbstring
+    state: latest
+- apt:
+    pkg: composer
+    state: latest
+- copy:
+    src: "{{ nginx_config_source }}"
+    dest: "{{ nginx_config_destination }}"
+- service:
+    name: nginx
+    state: reloaded

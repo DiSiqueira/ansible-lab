@@ -1,0 +1,23 @@
+---
+
+# Tasks for 'testapp' role
+
+- git:
+    repo: "{{ application_repo }}"
+    dest: "{{ application_install_path }}"
+- composer:
+    command: install
+    working_dir: "{{ application_install_path }}"
+- file:
+    path: "{{ application_install_path }}/storage"
+    owner: www-data
+    group: www-data
+    recurse: yes
+- file:
+    path: "{{ application_install_path }}/bootstrap/cache"
+    owner: www-data
+    group: www-data
+    recurse: yes
+- copy:
+    src: "{{ source_env_file }}"
+    dest: /var/www/testapp/.env

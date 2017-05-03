@@ -1,0 +1,13 @@
+---
+  - hosts: web
+
+    vars:
+      - nginx_config_source: "testapp.conf"
+      - nginx_config_destination: "/etc/nginx/sites-available/default"
+      - application_repo: "https://github.com/rnurgaliyev/ansible-lab-testapp.git"
+      - application_install_path: "/var/www/testapp"
+      - source_env_file: "env"
+
+    roles:
+      - nginx
+      - testapp
