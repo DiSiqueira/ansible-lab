@@ -20,4 +20,4 @@
     recurse: yes
 - copy:
     src: "{{ source_env_file }}"
-    dest: /var/www/testapp/.env
+    dest: "{{ application_install_path }}/.env" 
